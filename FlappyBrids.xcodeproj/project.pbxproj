@@ -8,26 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		B13565D223E0DB5400AD2FF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13565D123E0DB5400AD2FF4 /* AppDelegate.swift */; };
-		B13565D423E0DB5400AD2FF4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B13565D323E0DB5400AD2FF4 /* GameScene.sks */; };
-		B13565D623E0DB5500AD2FF4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B13565D523E0DB5500AD2FF4 /* Actions.sks */; };
 		B13565D823E0DB5500AD2FF4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13565D723E0DB5500AD2FF4 /* GameScene.swift */; };
 		B13565DA23E0DB5500AD2FF4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13565D923E0DB5500AD2FF4 /* GameViewController.swift */; };
 		B13565DD23E0DB5500AD2FF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B13565DB23E0DB5500AD2FF4 /* Main.storyboard */; };
 		B13565DF23E0DB5600AD2FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B13565DE23E0DB5600AD2FF4 /* Assets.xcassets */; };
 		B13565E223E0DB5600AD2FF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B13565E023E0DB5600AD2FF4 /* LaunchScreen.storyboard */; };
+		B13565F523E0E12000AD2FF4 /* land.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565EC23E0E12000AD2FF4 /* land.png */; };
+		B13565F623E0E12000AD2FF4 /* PipeDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565ED23E0E12000AD2FF4 /* PipeDown.png */; };
+		B13565F723E0E12000AD2FF4 /* PipeUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565EE23E0E12000AD2FF4 /* PipeUp.png */; };
+		B13565F823E0E12000AD2FF4 /* bird-03.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565EF23E0E12000AD2FF4 /* bird-03.png */; };
+		B13565F923E0E12000AD2FF4 /* bird-02.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565F023E0E12000AD2FF4 /* bird-02.png */; };
+		B13565FA23E0E12000AD2FF4 /* bird-01.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565F123E0E12000AD2FF4 /* bird-01.png */; };
+		B13565FB23E0E12000AD2FF4 /* bird-04.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565F223E0E12000AD2FF4 /* bird-04.png */; };
+		B13565FC23E0E12000AD2FF4 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565F323E0E12000AD2FF4 /* sky.png */; };
+		B13565FD23E0E12000AD2FF4 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = B13565F423E0E12000AD2FF4 /* scoreboard.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B13565CE23E0DB5400AD2FF4 /* FlappyBrids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBrids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13565D123E0DB5400AD2FF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B13565D323E0DB5400AD2FF4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		B13565D523E0DB5500AD2FF4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		B13565D723E0DB5500AD2FF4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B13565D923E0DB5500AD2FF4 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B13565DC23E0DB5500AD2FF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B13565DE23E0DB5600AD2FF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B13565E123E0DB5600AD2FF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B13565E323E0DB5600AD2FF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B13565EC23E0E12000AD2FF4 /* land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = land.png; sourceTree = "<group>"; };
+		B13565ED23E0E12000AD2FF4 /* PipeDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PipeDown.png; sourceTree = "<group>"; };
+		B13565EE23E0E12000AD2FF4 /* PipeUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PipeUp.png; sourceTree = "<group>"; };
+		B13565EF23E0E12000AD2FF4 /* bird-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird-03.png"; sourceTree = "<group>"; };
+		B13565F023E0E12000AD2FF4 /* bird-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird-02.png"; sourceTree = "<group>"; };
+		B13565F123E0E12000AD2FF4 /* bird-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird-01.png"; sourceTree = "<group>"; };
+		B13565F223E0E12000AD2FF4 /* bird-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird-04.png"; sourceTree = "<group>"; };
+		B13565F323E0E12000AD2FF4 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
+		B13565F423E0E12000AD2FF4 /* scoreboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreboard.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +74,8 @@
 		B13565D023E0DB5400AD2FF4 /* FlappyBrids */ = {
 			isa = PBXGroup;
 			children = (
+				B13565EB23E0E12000AD2FF4 /* assets */,
 				B13565D123E0DB5400AD2FF4 /* AppDelegate.swift */,
-				B13565D323E0DB5400AD2FF4 /* GameScene.sks */,
-				B13565D523E0DB5500AD2FF4 /* Actions.sks */,
 				B13565D723E0DB5500AD2FF4 /* GameScene.swift */,
 				B13565D923E0DB5500AD2FF4 /* GameViewController.swift */,
 				B13565DB23E0DB5500AD2FF4 /* Main.storyboard */,
@@ -71,6 +84,23 @@
 				B13565E323E0DB5600AD2FF4 /* Info.plist */,
 			);
 			path = FlappyBrids;
+			sourceTree = "<group>";
+		};
+		B13565EB23E0E12000AD2FF4 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				B13565EC23E0E12000AD2FF4 /* land.png */,
+				B13565ED23E0E12000AD2FF4 /* PipeDown.png */,
+				B13565EE23E0E12000AD2FF4 /* PipeUp.png */,
+				B13565EF23E0E12000AD2FF4 /* bird-03.png */,
+				B13565F023E0E12000AD2FF4 /* bird-02.png */,
+				B13565F123E0E12000AD2FF4 /* bird-01.png */,
+				B13565F223E0E12000AD2FF4 /* bird-04.png */,
+				B13565F323E0E12000AD2FF4 /* sky.png */,
+				B13565F423E0E12000AD2FF4 /* scoreboard.png */,
+			);
+			name = assets;
+			path = ../../../Downloads/assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,11 +161,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B13565F623E0E12000AD2FF4 /* PipeDown.png in Resources */,
 				B13565DD23E0DB5500AD2FF4 /* Main.storyboard in Resources */,
-				B13565D423E0DB5400AD2FF4 /* GameScene.sks in Resources */,
+				B13565F823E0E12000AD2FF4 /* bird-03.png in Resources */,
 				B13565DF23E0DB5600AD2FF4 /* Assets.xcassets in Resources */,
+				B13565FB23E0E12000AD2FF4 /* bird-04.png in Resources */,
+				B13565FA23E0E12000AD2FF4 /* bird-01.png in Resources */,
+				B13565F523E0E12000AD2FF4 /* land.png in Resources */,
+				B13565F723E0E12000AD2FF4 /* PipeUp.png in Resources */,
+				B13565F923E0E12000AD2FF4 /* bird-02.png in Resources */,
+				B13565FD23E0E12000AD2FF4 /* scoreboard.png in Resources */,
+				B13565FC23E0E12000AD2FF4 /* sky.png in Resources */,
 				B13565E223E0DB5600AD2FF4 /* LaunchScreen.storyboard in Resources */,
-				B13565D623E0DB5500AD2FF4 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
