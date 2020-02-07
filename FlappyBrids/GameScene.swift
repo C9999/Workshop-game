@@ -9,7 +9,16 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+let birdMask: UInt32 = 0x001
+let wordMark: UInt32 = 0x010
+let pipeMark: UInt32 = 0x100
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("Morreu ")
+        sprite.alpha = 0.2
+    }
     
     var sprite: SKSpriteNode
     
@@ -25,7 +34,21 @@ class GameScene: SKScene {
         addChild(sprite)
         loadAnimation()
         
-        scene?.physicsWorld.gravity = CGVector(dx: 0, dy: 1)
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -0.5)
+        physicsWorld.contactDelegate = self
+        
+//        sprite.physicsBody?.restitution = 1
+        physicsBody?.categoryBitMask = wordMark
+        physicsBody?.contactTestBitMask = birdMask //checkpoint
+        physicsBody?.collisionBitMask = birdMask
+        
+        sprite.physicsBody?.categoryBitMask = birdMask
+        sprite.physicsBody?.contactTestBitMask = wordMark & pipeMark
+        sprite.physicsBody?.collisionBitMask = wordMark
+        
+        
+        
     }
     
     
@@ -49,5 +72,12 @@ class GameScene: SKScene {
         let animation = SKAction.animate(with: textures, timePerFrame: 0.2)
         let repeatForever = SKAction.repeatForever(animation)
         sprite.run(repeatForever)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if sprite.physicsBody!.velocity.dy < CGFloat(100) {
+            sprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 5))
+        }
+        
     }
 }
