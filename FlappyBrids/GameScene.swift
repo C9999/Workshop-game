@@ -9,45 +9,49 @@
 import SpriteKit
 import GameplayKit
 
-let birdMask: UInt32 = 0x001
-let wordMark: UInt32 = 0x010
-let pipeMark: UInt32 = 0x100
+let birdMask: UInt32 = 1
+let wordMask: UInt32 = 2
+let pipeMask: UInt32 = 4
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
-        print("Morreu ")
-        sprite.alpha = 0.2
+        let scene = GameScene(size: size)
+        let transition = SKTransition.doorsOpenHorizontal(withDuration: 2)
+        view?.presentScene(scene, transition: transition)
     }
     
-    var sprite: SKSpriteNode
+    var bird: SKSpriteNode
     
     override init(size: CGSize) {
-        sprite = SKSpriteNode(imageNamed: "bird-01")
+        bird = SKSpriteNode(imageNamed: "bird-01")
         super.init(size:size)
-        
-//        sprite.anchorPoint = CGPoint(x: 0, y: 0)
-        sprite.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        sprite.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
-        
-        sprite.setScale(3)
-        addChild(sprite)
+
+        bird.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.size.width / 2)
+        bird.setScale(2)
+        addChild(bird)
         loadAnimation()
         
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         physicsWorld.gravity = CGVector(dx: 0, dy: -0.5)
         physicsWorld.contactDelegate = self
-        
-//        sprite.physicsBody?.restitution = 1
-        physicsBody?.categoryBitMask = wordMark
+
+        physicsBody?.categoryBitMask = wordMask
         physicsBody?.contactTestBitMask = birdMask //checkpoint
         physicsBody?.collisionBitMask = birdMask
         
-        sprite.physicsBody?.categoryBitMask = birdMask
-        sprite.physicsBody?.contactTestBitMask = wordMark & pipeMark
-        sprite.physicsBody?.collisionBitMask = wordMark
+        bird.physicsBody?.categoryBitMask = birdMask
+        bird.physicsBody?.contactTestBitMask = wordMask & pipeMask
+        bird.physicsBody?.collisionBitMask = wordMask & pipeMask
         
-        
+        let spawn = SKAction.run {
+            self.spawnPipe()
+        }
+        let wait = SKAction.wait(forDuration: 1.5)
+        let sequence = SKAction.sequence([spawn, wait])
+        let repeatForever = SKAction.repeatForever(sequence)
+        self.run(repeatForever)
         
     }
     
@@ -55,6 +59,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError( "init(coder:) has not been implemented")
     }
+    
+    func createPipe(height: CGFloat, imageNamed: String) -> SKSpriteNode {
+        let pipe = SKSpriteNode(imageNamed: imageNamed)
+        pipe.position = CGPoint(x: size.width * 1.1, y: height)
+        pipe.physicsBody = SKPhysicsBody(rectangleOf: pipe.size)
+        pipe.physicsBody?.isDynamic = false
+        pipe.setScale(2)
+        addChild(pipe)
+
+        pipe.physicsBody?.categoryBitMask = pipeMask
+        pipe.physicsBody?.contactTestBitMask = birdMask
+        pipe.physicsBody?.collisionBitMask = birdMask
+
+        return pipe
+    }
+    
+    func spawnPipe() {
+    //        let height = CGFloat.random(in: 0...(size.height * 0.1))
+    //        let distance: CGFloat = 100
+    //        let pipeDownHeight = size.height - height - distance
+            let pipeUpHeight = CGFloat.random(in: (size.height * 0.05)...(size.height * 0.2))
+            let pipeDownHeight = CGFloat.random(in: (size.height * 0.75)...(size.height * 0.95))
+            let pipeUp = createPipe(height: pipeUpHeight, imageNamed: "PipeUp")
+            let pipeDown = createPipe(height: pipeDownHeight, imageNamed: "PipeDown")
+
+            let move = SKAction.moveTo(x: -100, duration: 3)
+            let removeFromScene = SKAction.run {
+                pipeUp.removeFromParent()
+                pipeDown.removeFromParent()
+            }
+            let sequence = SKAction.sequence([move, removeFromScene])
+            pipeDown.run(move)
+            pipeUp.run(sequence)
+        }
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -71,12 +109,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         let animation = SKAction.animate(with: textures, timePerFrame: 0.2)
         let repeatForever = SKAction.repeatForever(animation)
-        sprite.run(repeatForever)
+        bird.run(repeatForever)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if sprite.physicsBody!.velocity.dy < CGFloat(100) {
-            sprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 5))
+        if bird.physicsBody!.velocity.dy < CGFloat(100) {
+            bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 5))
         }
         
     }
