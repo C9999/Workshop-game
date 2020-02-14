@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bird: SKSpriteNode
     
     override init(size: CGSize) {
-        bird = SKSpriteNode(imageNamed: "bird-01")
+        bird = SKSpriteNode(imageNamed: "PipeUp")
         super.init(size:size)
 
         bird.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -80,9 +80,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //        let distance: CGFloat = 100
     //        let pipeDownHeight = size.height - height - distance
             let pipeUpHeight = CGFloat.random(in: (size.height * 0.05)...(size.height * 0.2))
-            let pipeDownHeight = CGFloat.random(in: (size.height * 0.75)...(size.height * 0.95))
-            let pipeUp = createPipe(height: pipeUpHeight, imageNamed: "PipeUp")
-            let pipeDown = createPipe(height: pipeDownHeight, imageNamed: "PipeDown")
+            let pipeDownHeight = CGFloat.random(in: (size.height * 0.95)...(size.height * 0.99))
+            let pipeUp = createPipe(height: pipeUpHeight, imageNamed: "bird-01")
+            let pipeDown = createPipe(height: pipeDownHeight, imageNamed: "bird-01")
 
             let move = SKAction.moveTo(x: -100, duration: 3)
             let removeFromScene = SKAction.run {
@@ -99,7 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func loadAnimation(){
-        let texturesNames = ["bird-01", "bird-02", "bird-03", "bird-04"]
+        let texturesNames = ["PipeUp", "PipeDown", "PipeUp", "PipeDown"]
         var textures: [SKTexture] = []
         
         for name in texturesNames {
